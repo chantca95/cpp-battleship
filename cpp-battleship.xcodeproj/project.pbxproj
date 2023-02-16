@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB7E3629299DF37B00DD00E3 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7E3627299DF37B00DD00E3 /* Board.cpp */; };
+		BB7E362C299E052B00DD00E3 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7E362A299E052B00DD00E3 /* Player.cpp */; };
+		BB7E362F299E12E500DD00E3 /* GameUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7E362D299E12E500DD00E3 /* GameUtil.cpp */; };
 		BB84DADA299CC5920076D269 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB84DAD9299CC5920076D269 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +26,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BB7E3627299DF37B00DD00E3 /* Board.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Board.cpp; sourceTree = "<group>"; };
+		BB7E3628299DF37B00DD00E3 /* Board.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Board.hpp; sourceTree = "<group>"; };
+		BB7E362A299E052B00DD00E3 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		BB7E362B299E052B00DD00E3 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		BB7E362D299E12E500DD00E3 /* GameUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameUtil.cpp; sourceTree = "<group>"; };
+		BB7E362E299E12E500DD00E3 /* GameUtil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameUtil.hpp; sourceTree = "<group>"; };
 		BB84DAD6299CC5920076D269 /* cpp-battleship */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "cpp-battleship"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB84DAD9299CC5920076D269 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				BB84DAD9299CC5920076D269 /* main.cpp */,
+				BB7E362A299E052B00DD00E3 /* Player.cpp */,
+				BB7E362B299E052B00DD00E3 /* Player.hpp */,
+				BB7E3627299DF37B00DD00E3 /* Board.cpp */,
+				BB7E3628299DF37B00DD00E3 /* Board.hpp */,
+				BB7E362D299E12E500DD00E3 /* GameUtil.cpp */,
+				BB7E362E299E12E500DD00E3 /* GameUtil.hpp */,
 			);
 			path = "cpp-battleship";
 			sourceTree = "<group>";
@@ -119,7 +134,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB7E3629299DF37B00DD00E3 /* Board.cpp in Sources */,
+				BB7E362F299E12E500DD00E3 /* GameUtil.cpp in Sources */,
 				BB84DADA299CC5920076D269 /* main.cpp in Sources */,
+				BB7E362C299E052B00DD00E3 /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
