@@ -20,6 +20,7 @@ public:
     string name;
     void printVisibleBoard();
     void printHiddenBoard();
+    char registerAttackOnBoardAtGivenCoordinate(int coordinate);
 private:
     Board visibleBoard;
     Board hiddenBoard;

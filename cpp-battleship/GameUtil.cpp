@@ -6,14 +6,61 @@
 //
 
 #include "GameUtil.hpp"
+#include "Player.hpp"
 #include <iostream>
 #include <cstdlib>
 
-GameUtil::GameUtil(){};
+void GameUtil::swapActivePlayer(Player *current, Player *next) {
+    Player temp = *current;
+    *current = *next;
+    *next = temp;
+}
 
-void GameUtil::swapActivePlayer(Player *p1, Player *p2) {
+void GameUtil::attackPlayerAtCoordinate(Player *other, int coordinate) {
+    // do nothing
+}
+
+int GameUtil::getRowFromCoordinate(int coordinate) {
+    return (coordinate - 1) / 10;
+}
+
+int GameUtil::getColFromCoordinate(int coordinate) {
+    return (coordinate - 1) % 10;
+}
+
+Player GameUtil::createPlayer(int playerNumber) {
+    string name;
+    cout << "Enter Player " << playerNumber << "'s name: ";
+    getline(cin, name);
+    cout << "\n";
+    return Player(name);
+}
+
+void GameUtil::commencePlayerTurn(Player* current, Player* next) {
     cout << "----- NEXT TURN -----\n\n";
-    Player temp = *p1;
-    *p1 = *p2;
-    *p2 = temp;
+    cout << "It is now " << current->name << "'s turn. ";
+    char resultFromAttack;
+    while (true) {
+        next->printVisibleBoard();
+        cout << "Please select a tile from 1-100 to attack: ";
+        string userInput;
+        cin >> userInput;
+        int coordinate = stoi(userInput);
+        if (1 <= coordinate && coordinate <= 100) {
+            cout << "Attacking square " << coordinate << "!\n";
+            resultFromAttack = next->registerAttackOnBoardAtGivenCoordinate(coordinate);
+            if (resultFromAttack == 'X') {
+                cout << "Successful attack! You get to go again! ";
+            } else {
+                break;
+            }
+        }
+    }
+}
+
+void GameUtil::printIntro() {
+    cout << "Welcome to Battleships! Each player will place 5 ship pieces on a 10 x 10 board.\n";
+    cout << "Players then take turns attacking each other, one square at a time.\n";
+    cout << "If you hit a ship, you get to attack again. If you miss, play rotates to the other player.\n";
+    cout << "The game ends when either player destroys all of the others' ships. HAVE FUN! \n\n";
 }

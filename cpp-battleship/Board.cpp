@@ -6,6 +6,7 @@
 //
 
 #include "Board.hpp"
+#include "GameUtil.hpp"
 #include <iostream>
 using namespace std;
 
@@ -27,11 +28,11 @@ void Board::printBoard() {
     cout << '\n';
 }
 
-void Board::placeShipOnBoardAt(int row, int col) {
-    grid[row][col] = 'X';
+void Board::placeShipOnBoardAt(int coordinate) {
+    grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)] = 'X';
 }
 
-void Board::markRemainingSquaresSafe() {
+void Board::markRemainingTilesSafe() {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
             if (grid[i][j] != 'X') {
@@ -39,4 +40,12 @@ void Board::markRemainingSquaresSafe() {
             }
         }
     };
+}
+
+char Board::getTileStatus(int row, int col) {
+    return grid[row][col];
+}
+
+void Board::markTileWithStatus(int row, int col, char status) {
+    grid[row][col] = status;
 }

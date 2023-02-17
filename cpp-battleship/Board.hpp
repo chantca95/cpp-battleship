@@ -16,8 +16,10 @@ class Board {
 public:
     Board();
     void printBoard();
-    void placeShipOnBoardAt(int, int);
-    void markRemainingSquaresSafe();
+    void placeShipOnBoardAt(int);
+    void markRemainingTilesSafe();
+    char getTileStatus(int row, int col);
+    void markTileWithStatus(int row, int col, char status);
 private:
     char grid[10][10];
 };
