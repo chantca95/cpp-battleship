@@ -14,48 +14,41 @@ using namespace std;
 
 Player::Player(string name) {
     this -> name = name;
-    this -> visibleBoard = Board();
-    this -> hiddenBoard = Board();
+    this -> board = Board();
     // Just randomly populate boards, we will replace this later on by asking for user input
     srand((unsigned) time(NULL));
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.placeShipOnBoardAt(rand() % 100 + 1);
-    hiddenBoard.markRemainingTilesSafe();
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1);
 }
 
 void Player::printVisibleBoard() {
     cout << "Player " << name << "'s board looks like this:\n\n";
-    visibleBoard.printBoard();
+    board.printBoardForPublic();
 }
 
 void Player::printHiddenBoard() {
     cout << "Player " + name + "'s UNCOVERED board looks like this (DEBUG ONLY):\n\n";
-    hiddenBoard.printBoard();
+    board.printBoardTransparently();
 }
 
 char Player::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
-    int row = GameUtil::getRowFromCoordinate(coordinate);
-    int col = GameUtil::getColFromCoordinate(coordinate);
-    char actualStatus = hiddenBoard.getTileStatus(row, col);
-    cout << "The status of tile " << coordinate << " of player " << name << " is " << actualStatus << "\n\n";
-    visibleBoard.markTileWithStatus(row, col, actualStatus);
-    return actualStatus;
+    return board.registerAttackOnBoardAtGivenCoordinate(coordinate);
 }

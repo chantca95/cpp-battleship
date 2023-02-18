@@ -10,18 +10,18 @@
 
 #include <stdio.h>
 #include <string>
+#include "Tile.hpp"
 using namespace std;
 
 class Board {
 public:
     Board();
-    void printBoard();
+    void printBoardForPublic();
+    void printBoardTransparently();
     void placeShipOnBoardAt(int);
-    void markRemainingTilesSafe();
-    char getTileStatus(int row, int col);
-    void markTileWithStatus(int row, int col, char status);
+    char registerAttackOnBoardAtGivenCoordinate(int coordinate);
 private:
-    char grid[10][10];
+    Tile grid[10][10];
 };
 
 #endif /* Board_hpp */

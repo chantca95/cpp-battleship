@@ -22,7 +22,6 @@ public:
     void printHiddenBoard();
     char registerAttackOnBoardAtGivenCoordinate(int coordinate);
 private:
-    Board visibleBoard;
-    Board hiddenBoard;
+    Board board;
 };
 #endif /* Player_hpp */

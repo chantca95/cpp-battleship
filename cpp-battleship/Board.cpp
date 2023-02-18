@@ -13,15 +13,25 @@ using namespace std;
 Board::Board() {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
-            grid[i][j] = '?';
+            grid[i][j] = Tile();
         }
     };
 }
 
-void Board::printBoard() {
+void Board::printBoardForPublic() {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
-            cout << grid[i][j] << ' ';
+            grid[i][j].printTileForPublic();
+        }
+        cout << '\n';
+    };
+    cout << '\n';
+}
+
+void Board::printBoardTransparently() {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            grid[i][j].printTileTransparently();
         }
         cout << '\n';
     };
@@ -29,23 +39,13 @@ void Board::printBoard() {
 }
 
 void Board::placeShipOnBoardAt(int coordinate) {
-    grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)] = 'X';
+    grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].markTileWithShip();
 }
 
-void Board::markRemainingTilesSafe() {
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            if (grid[i][j] != 'X') {
-                grid[i][j] = '-';
-            }
-        }
-    };
-}
-
-char Board::getTileStatus(int row, int col) {
-    return grid[row][col];
-}
-
-void Board::markTileWithStatus(int row, int col, char status) {
-    grid[row][col] = status;
+char Board::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
+    int row = GameUtil::getRowFromCoordinate(coordinate);
+    int col = GameUtil::getColFromCoordinate(coordinate);
+    grid[row][col].markTileAsRevealed();
+    
+    return grid[row][col].status;
 }

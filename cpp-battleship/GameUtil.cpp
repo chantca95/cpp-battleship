@@ -16,10 +16,6 @@ void GameUtil::swapActivePlayer(Player *current, Player *next) {
     *next = temp;
 }
 
-void GameUtil::attackPlayerAtCoordinate(Player *other, int coordinate) {
-    // do nothing
-}
-
 int GameUtil::getRowFromCoordinate(int coordinate) {
     return (coordinate - 1) / 10;
 }
@@ -52,6 +48,7 @@ void GameUtil::commencePlayerTurn(Player* current, Player* next) {
             if (resultFromAttack == 'X') {
                 cout << "Successful attack! You get to go again! ";
             } else {
+                cout << "You missed! Turn over!\n\n";
                 break;
             }
         }

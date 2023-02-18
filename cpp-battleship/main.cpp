@@ -18,9 +18,6 @@ int main(int argc, const char * argv[]) {
     Player p2 = GameUtil::createPlayer(2);
     Player *current = &p1;
     Player *next = &p2;
-//    (*current).printVisibleBoard();
-//    // alternative syntax of (*current) is current->methodName
-//    next->printVisibleBoard();
     
     for (int i = 0; i < 10; i++) {
         GameUtil::commencePlayerTurn(current, next);

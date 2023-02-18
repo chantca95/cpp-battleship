@@ -16,7 +16,6 @@ using namespace std;
 class GameUtil {
 public:
     static void swapActivePlayer(Player* p1, Player* p2);
-    static void attackPlayerAtCoordinate(Player* other, int coordinate);
     static int getRowFromCoordinate(int coordinate);
     static int getColFromCoordinate(int coordinate);
     static Player createPlayer(int playerNumber);
