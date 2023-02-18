@@ -12,6 +12,8 @@
 		BB7E362F299E12E500DD00E3 /* GameUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7E362D299E12E500DD00E3 /* GameUtil.cpp */; };
 		BB7E363E29A0BDC500DD00E3 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB7E363C29A0BDC500DD00E3 /* Tile.cpp */; };
 		BB84DADA299CC5920076D269 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB84DAD9299CC5920076D269 /* main.cpp */; };
+		BB981E6129A14F4400B1A6BF /* Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB981E5F29A14F4400B1A6BF /* Ship.cpp */; };
+		BB981E6429A1527F00B1A6BF /* Horizontal3Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB981E6229A1527F00B1A6BF /* Horizontal3Ship.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +39,10 @@
 		BB7E363D29A0BDC500DD00E3 /* Tile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Tile.hpp; sourceTree = "<group>"; };
 		BB84DAD6299CC5920076D269 /* cpp-battleship */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "cpp-battleship"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB84DAD9299CC5920076D269 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BB981E5F29A14F4400B1A6BF /* Ship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ship.cpp; sourceTree = "<group>"; };
+		BB981E6029A14F4400B1A6BF /* Ship.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Ship.hpp; sourceTree = "<group>"; };
+		BB981E6229A1527F00B1A6BF /* Horizontal3Ship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Horizontal3Ship.cpp; sourceTree = "<group>"; };
+		BB981E6329A1527F00B1A6BF /* Horizontal3Ship.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Horizontal3Ship.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,10 @@
 				BB7E362E299E12E500DD00E3 /* GameUtil.hpp */,
 				BB7E363C29A0BDC500DD00E3 /* Tile.cpp */,
 				BB7E363D29A0BDC500DD00E3 /* Tile.hpp */,
+				BB981E5F29A14F4400B1A6BF /* Ship.cpp */,
+				BB981E6029A14F4400B1A6BF /* Ship.hpp */,
+				BB981E6229A1527F00B1A6BF /* Horizontal3Ship.cpp */,
+				BB981E6329A1527F00B1A6BF /* Horizontal3Ship.hpp */,
 			);
 			path = "cpp-battleship";
 			sourceTree = "<group>";
@@ -140,8 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB7E3629299DF37B00DD00E3 /* Board.cpp in Sources */,
+				BB981E6429A1527F00B1A6BF /* Horizontal3Ship.cpp in Sources */,
 				BB7E362F299E12E500DD00E3 /* GameUtil.cpp in Sources */,
 				BB84DADA299CC5920076D269 /* main.cpp in Sources */,
+				BB981E6129A14F4400B1A6BF /* Ship.cpp in Sources */,
 				BB7E362C299E052B00DD00E3 /* Player.cpp in Sources */,
 				BB7E363E29A0BDC500DD00E3 /* Tile.cpp in Sources */,
 			);
