@@ -17,16 +17,16 @@ void GameUtil::swapActivePlayer() {
     *nextasdf = temp;
 }
 
-void GameUtil::initializePlayerShips(Player *p) {
+void GameUtil::initializePlayerShips() {
     string input;
-    cout << "It is Player " << p->name << "'s turn to place ships.\n\n";
+    cout << "It is Player " << currentqwer->name << "'s turn to place ships.\n\n";
     for (int i = 0; i < numShipsToPlace; i++) {
         cout << "Please select a tile from 1-100 to place a ship at: ";
         cin >> input;
         int coordinate = stoi(input);
         if (1 <= coordinate && coordinate <= 100) {
             Ship* s = new Horizontal3Ship();
-            p->placeShipOnBoardAtCoordinate(s, coordinate);
+            currentqwer->placeShipOnBoardAtCoordinate(s, coordinate);
         }
         cout << endl;
     }
@@ -48,25 +48,25 @@ Player GameUtil::createPlayer(int playerNumber) {
     return Player(name);
 }
 
-void GameUtil::commencePlayerTurn(Player* current, Player* next) {
+void GameUtil::commencePlayerTurn() {
     cout << "----- NEXT TURN -----\n\n";
-    cout << "It is now " << current->name << "'s turn. ";
+    cout << "It is now " << currentqwer->name << "'s turn. ";
     while (true) {
-        next->printVisibleBoard();
+        nextasdf->printVisibleBoard();
         cout << "Please select a tile from 1-100 to attack: ";
         string userInput;
         cin >> userInput;
         int coordinate = stoi(userInput);
         if (1 <= coordinate && coordinate <= 100) {
             cout << "Attacking square " << coordinate << "!\n";
-            int attackResult = next->registerAttackOnBoardAtGivenCoordinate(coordinate);
+            int attackResult = nextasdf->registerAttackOnBoardAtGivenCoordinate(coordinate);
             if (attackResult == SHIP_MISSED) {
                 cout << "You missed! Turn over!\n\n";
                 break;
             } else {
-                if (next->hasNoShipsRemaining()) {
-                    cout << "Player " << next->name << " has no ships remaining and has been defeated!\n\n";
-                    cout << "PLAYER " << current->name << " WINS!!!\n\n";
+                if (nextasdf->hasNoShipsRemaining()) {
+                    cout << "Player " << nextasdf->name << " has no ships remaining and has been defeated!\n\n";
+                    cout << "PLAYER " << currentqwer->name << " WINS!!!\n\n";
                     break;
                 } else {
                     cout << "Successful attack! You get to go again! ";

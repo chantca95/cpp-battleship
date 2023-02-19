@@ -26,11 +26,11 @@ public:
     inline static Player* currentqwer = nullptr;
     inline static Player* nextasdf = nullptr;
     static void swapActivePlayer();
-    static void initializePlayerShips(Player* p);
+    static void initializePlayerShips();
     static int getRowFromCoordinate(int coordinate);
     static int getColFromCoordinate(int coordinate);
     static Player createPlayer(int playerNumber);
-    static void commencePlayerTurn(Player* current, Player* next);
+    static void commencePlayerTurn();
     static void printIntro();
 };
 #endif /* GameUtil_hpp */

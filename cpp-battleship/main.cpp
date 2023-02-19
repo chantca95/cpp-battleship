@@ -22,12 +22,12 @@ int main(int argc, const char * argv[]) {
     GameUtil::nextasdf = &p2;
     
     for (int i = 0; i < 2; i++) {
-        GameUtil::initializePlayerShips(current);
+        GameUtil::initializePlayerShips();
         GameUtil::swapActivePlayer();
     }
     
     for (int i = 0; i < 10; i++) {
-        GameUtil::commencePlayerTurn(current, next);
+        GameUtil::commencePlayerTurn();
         GameUtil::swapActivePlayer();
     }
     
