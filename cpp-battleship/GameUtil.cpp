@@ -10,13 +10,11 @@
 #include "Ship.hpp"
 #include "Horizontal3Ship.hpp"
 #include <iostream>
-#include <cstdlib>
 
-
-void GameUtil::swapActivePlayer(Player *current, Player *next) {
-    Player temp = *current;
-    *current = *next;
-    *next = temp;
+void GameUtil::swapActivePlayer() {
+    Player temp = *currentqwer;
+    *currentqwer = *nextasdf;
+    *nextasdf = temp;
 }
 
 void GameUtil::initializePlayerShips(Player *p) {

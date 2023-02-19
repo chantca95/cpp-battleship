@@ -23,7 +23,9 @@ const int numShipsToPlace = 5;
 
 class GameUtil {
 public:
-    static void swapActivePlayer(Player* p1, Player* p2);
+    inline static Player* currentqwer = nullptr;
+    inline static Player* nextasdf = nullptr;
+    static void swapActivePlayer();
     static void initializePlayerShips(Player* p);
     static int getRowFromCoordinate(int coordinate);
     static int getColFromCoordinate(int coordinate);

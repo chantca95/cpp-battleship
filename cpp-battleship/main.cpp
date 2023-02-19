@@ -18,15 +18,17 @@ int main(int argc, const char * argv[]) {
     Player p2 = GameUtil::createPlayer(2);
     Player *current = &p1;
     Player *next = &p2;
+    GameUtil::currentqwer = &p1;
+    GameUtil::nextasdf = &p2;
     
     for (int i = 0; i < 2; i++) {
         GameUtil::initializePlayerShips(current);
-        GameUtil::swapActivePlayer(current, next);
+        GameUtil::swapActivePlayer();
     }
     
     for (int i = 0; i < 10; i++) {
         GameUtil::commencePlayerTurn(current, next);
-        GameUtil::swapActivePlayer(current, next);
+        GameUtil::swapActivePlayer();
     }
     
     // For debugging purposes only, remove when done
