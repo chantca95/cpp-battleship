@@ -39,6 +39,21 @@ void Board::printBoardTransparently() {
     cout << '\n';
 }
 
+void Board::printEndingBoard() {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            grid[i][j].printTileForPublic();
+        }
+        cout << "   ";
+        for (int j = 0; j < 10; j++) {
+            grid[i][j].printTileTransparently();
+        }
+        cout << '\n';
+    };
+    cout << '\n';
+}
+
+
 void Board::placeShipOnBoardAt(int coordinate, Ship* ship) {
     grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].markTileWithShip(ship);
 }

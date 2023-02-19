@@ -20,6 +20,7 @@ public:
     string name;
     void printVisibleBoard();
     void printHiddenBoard();
+    void printEndingBoard();
     int registerAttackOnBoardAtGivenCoordinate(int coordinate);
     void placeShipOnBoardAtCoordinate(Ship* ship, int coordinate);
     bool hasNoShipsRemaining();

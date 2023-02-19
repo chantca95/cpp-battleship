@@ -19,6 +19,7 @@ public:
     Board();
     void printBoardForPublic();
     void printBoardTransparently();
+    void printEndingBoard();
     void placeShipOnBoardAt(int, Ship*);
     int registerAttackOnBoardAtGivenCoordinate(int coordinate);
     int numShipsRemaining;

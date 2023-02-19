@@ -27,6 +27,11 @@ void Player::printHiddenBoard() {
     board.printBoardTransparently();
 }
 
+void Player::printEndingBoard() {
+    cout << "Player " << name << "'s VISIBLE vs UNCOVERED board looks like this:\n\n";
+    board.printEndingBoard();
+}
+
 int Player::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
     return board.registerAttackOnBoardAtGivenCoordinate(coordinate);
 }

@@ -36,7 +36,5 @@ public:
     static void playGame();
     static void printIntro();
     static void printOutro();
-private:
-    static int commencePlayerTurn();
 };
 #endif /* GameUtil_hpp */
