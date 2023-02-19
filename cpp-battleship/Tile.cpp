@@ -16,11 +16,11 @@ void Tile::markTileWithShip(Ship* ship) {
 }
 
 void Tile::markTileAsRevealed() {
-    revealed = true;
+    isRevealed = true;
 }
 
 void Tile::printTileForPublic() {
-    char output = revealed ? (shipPtr == nullptr ? '-' : 'X') : '?';
+    char output = isRevealed ? (shipPtr == nullptr ? '-' : 'X') : '?';
     cout << output << ' ';
 }
 

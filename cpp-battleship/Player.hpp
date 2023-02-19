@@ -24,7 +24,6 @@ public:
     int registerAttackOnBoardAtGivenCoordinate(int coordinate);
     void placeShipOnBoardAtCoordinate(Ship* ship, int coordinate);
     bool hasNoShipsRemaining();
-private:
     Board board;
 };
 #endif /* Player_hpp */

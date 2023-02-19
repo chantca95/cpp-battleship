@@ -11,6 +11,25 @@
 #include "Horizontal3Ship.hpp"
 #include <iostream>
 
+bool isValidShipPlacement(int coordinate, Board board) {
+    if (coordinate > 100 || coordinate < 1) {
+        return false;
+    } else if (board.grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].shipPtr != nullptr) {
+        return false;
+    }
+    return true;
+}
+
+bool isValidAttackCoordinate(int coordinate, Board board) {
+    if (coordinate > 100 || coordinate < 1) {
+        return false;
+    } else if (board.grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].isRevealed) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 void initializePlayerShips() {
     string input;
     cout << "It is Player " << GameUtil::current->name << "'s turn to place ships.\n\n";
@@ -18,9 +37,13 @@ void initializePlayerShips() {
         cout << "Please select a tile from 1-100 to place a ship at: ";
         cin >> input;
         int coordinate = stoi(input);
-        if (1 <= coordinate && coordinate <= 100) {
+        if (isValidShipPlacement(coordinate, GameUtil::current->board)) {
             Ship* s = new Horizontal3Ship();
             GameUtil::current->placeShipOnBoardAtCoordinate(s, coordinate);
+        } else {
+            // Repeat this loop
+            j--;
+            cout << "\nThat tile is out of bounds, or there is already a ship at that tile. ";
         }
         cout << endl;
     }
@@ -36,7 +59,7 @@ int commencePlayerTurn() {
         string userInput;
         cin >> userInput;
         int coordinate = stoi(userInput);
-        if (1 <= coordinate && coordinate <= 100) {
+        if (isValidAttackCoordinate(coordinate, GameUtil::next->board)) {
             cout << "Attacking square " << coordinate << "!\n";
             int attackResult = GameUtil::next->registerAttackOnBoardAtGivenCoordinate(coordinate);
             if (attackResult == SHIP_MISSED) {
@@ -52,6 +75,8 @@ int commencePlayerTurn() {
                     cout << "Successful attack! You get to go again! ";
                 }
             }
+        } else {
+            cout << "\nThat tile is out of bounds, or you have already attacked that tile.\n\n";
         }
     }
     return GAME_CONTINUE;

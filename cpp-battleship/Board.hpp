@@ -23,7 +23,6 @@ public:
     void placeShipOnBoardAt(int, Ship*);
     int registerAttackOnBoardAtGivenCoordinate(int coordinate);
     int numShipsRemaining;
-private:
     Tile grid[10][10];
 };
 

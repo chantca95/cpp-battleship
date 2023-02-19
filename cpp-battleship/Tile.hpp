@@ -17,7 +17,7 @@ public:
     void markTileAsRevealed();
     void printTileForPublic();
     void printTileTransparently();
-    bool revealed = false;
+    bool isRevealed = false;
     Ship* shipPtr = nullptr;
 };
 #endif /* Tile_hpp */
