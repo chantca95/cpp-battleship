@@ -19,6 +19,11 @@ int main(int argc, const char * argv[]) {
     Player *current = &p1;
     Player *next = &p2;
     
+    for (int i = 0; i < 2; i++) {
+        GameUtil::initializePlayerShips(current);
+        GameUtil::swapActivePlayer(current, next);
+    }
+    
     for (int i = 0; i < 10; i++) {
         GameUtil::commencePlayerTurn(current, next);
         GameUtil::swapActivePlayer(current, next);

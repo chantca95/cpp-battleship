@@ -7,13 +7,37 @@
 
 #include "GameUtil.hpp"
 #include "Player.hpp"
+#include "Ship.hpp"
+#include "Horizontal3Ship.hpp"
 #include <iostream>
 #include <cstdlib>
+
+const int numShipsToPlace = 5;
 
 void GameUtil::swapActivePlayer(Player *current, Player *next) {
     Player temp = *current;
     *current = *next;
     *next = temp;
+}
+
+void GameUtil::initializePlayerShips(Player *p) {
+    Ship shipsToBePlaced[numShipsToPlace] = {
+        Horizontal3Ship(),
+        Horizontal3Ship(),
+        Horizontal3Ship(),
+        Horizontal3Ship(),
+        Horizontal3Ship(),
+    };
+    string input;
+    cout << "It is Player " << p->name << "'s turn to place ships.\n\n";
+    for (int i = 0; i < numShipsToPlace; i++) {
+        cout << "Please select a tile from 1-100 to place a ship at: ";
+        cin >> input;
+        int coordinate = stoi(input);
+        if (1 <= coordinate && coordinate <= 100) {
+            p->placeShipOnBoardAtCoordinate(shipsToBePlaced[i], coordinate);
+        }
+    }
 }
 
 int GameUtil::getRowFromCoordinate(int coordinate) {

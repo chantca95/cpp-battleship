@@ -21,6 +21,7 @@ public:
     void printVisibleBoard();
     void printHiddenBoard();
     bool registerAttackOnBoardAtGivenCoordinate(int coordinate);
+    void placeShipOnBoardAtCoordinate(Ship ship, int coordinate);
 private:
     Board board;
 };
