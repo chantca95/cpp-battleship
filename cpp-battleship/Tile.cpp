@@ -11,19 +11,19 @@
 
 Tile::Tile() {}
 
-void Tile::markTileWithShip(Ship ship) {
-    this -> shipPtr = &ship;
+void Tile::markTileWithShip(Ship* ship) {
+    shipPtr = ship;
 }
 
 void Tile::markTileAsRevealed() {
-    this -> revealed = true;
+    revealed = true;
 }
 
 void Tile::printTileForPublic() {
-    char output = this -> revealed ? (this -> shipPtr == nullptr ? '-' : 'X') : '?';
+    char output = revealed ? (shipPtr == nullptr ? '-' : 'X') : '?';
     cout << output << ' ';
 }
 
 void Tile::printTileTransparently() {
-    cout << (this -> shipPtr == nullptr ? '-' : 'X') << ' ';
+    cout << (shipPtr == nullptr ? '-' : 'X') << ' ';
 }

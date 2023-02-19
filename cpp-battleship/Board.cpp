@@ -38,7 +38,7 @@ void Board::printBoardTransparently() {
     cout << '\n';
 }
 
-void Board::placeShipOnBoardAt(int coordinate, Ship ship) {
+void Board::placeShipOnBoardAt(int coordinate, Ship* ship) {
     grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].markTileWithShip(ship);
 }
 
@@ -46,5 +46,10 @@ bool Board::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
     int row = GameUtil::getRowFromCoordinate(coordinate);
     int col = GameUtil::getColFromCoordinate(coordinate);
     grid[row][col].markTileAsRevealed();
-    return grid[row][col].shipPtr != nullptr;
+    if (grid[row][col].shipPtr != nullptr) {
+        grid[row][col].shipPtr->damageSegment();
+        return true;
+    } else {
+        return false;
+    }
 }

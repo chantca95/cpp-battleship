@@ -21,13 +21,6 @@ void GameUtil::swapActivePlayer(Player *current, Player *next) {
 }
 
 void GameUtil::initializePlayerShips(Player *p) {
-    Ship shipsToBePlaced[numShipsToPlace] = {
-        Horizontal3Ship(),
-        Horizontal3Ship(),
-        Horizontal3Ship(),
-        Horizontal3Ship(),
-        Horizontal3Ship(),
-    };
     string input;
     cout << "It is Player " << p->name << "'s turn to place ships.\n\n";
     for (int i = 0; i < numShipsToPlace; i++) {
@@ -35,8 +28,10 @@ void GameUtil::initializePlayerShips(Player *p) {
         cin >> input;
         int coordinate = stoi(input);
         if (1 <= coordinate && coordinate <= 100) {
-            p->placeShipOnBoardAtCoordinate(shipsToBePlaced[i], coordinate);
+            Ship* s = new Horizontal3Ship();
+            p->placeShipOnBoardAtCoordinate(s, coordinate);
         }
+        cout << endl;
     }
 }
 

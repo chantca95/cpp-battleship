@@ -8,5 +8,5 @@
 #include "Horizontal3Ship.hpp"
 
 Horizontal3Ship::Horizontal3Ship() {
-    this -> segmentsRemaining = 1;
+    segmentsRemaining = 1;
 }

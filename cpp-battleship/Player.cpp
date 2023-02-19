@@ -14,8 +14,8 @@
 using namespace std;
 
 Player::Player(string name) {
-    this -> name = name;
-    this -> board = Board();
+    this->name = name;
+    board = Board();
     // Just randomly populate boards, we will replace this later on by asking for user input
     srand((unsigned) time(NULL));
 }
@@ -34,6 +34,6 @@ bool Player::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
     return board.registerAttackOnBoardAtGivenCoordinate(coordinate);
 }
 
-void Player::placeShipOnBoardAtCoordinate(Ship ship, int coordinate) {
-    board.placeShipOnBoardAt(coordinate, Horizontal3Ship());
+void Player::placeShipOnBoardAtCoordinate(Ship* ship, int coordinate) {
+    board.placeShipOnBoardAt(coordinate, ship);
 }

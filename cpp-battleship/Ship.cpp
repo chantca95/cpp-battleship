@@ -6,14 +6,16 @@
 //
 
 #include "Ship.hpp"
+#include <iostream>
 
 Ship::Ship() {
-    this -> isDestroyed = false;
+    isDestroyed = false;
 }
 
 void Ship::damageSegment() {
-    this -> segmentsRemaining--;
+    segmentsRemaining -= 1;
     if (segmentsRemaining == 0) {
-        this -> isDestroyed = true;
+        isDestroyed = true;
+        cout << "*** SHIP DESTROYED!!! ***\n\n";
     }
 }

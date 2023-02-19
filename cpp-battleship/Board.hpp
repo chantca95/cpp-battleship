@@ -19,7 +19,7 @@ public:
     Board();
     void printBoardForPublic();
     void printBoardTransparently();
-    void placeShipOnBoardAt(int, Ship);
+    void placeShipOnBoardAt(int, Ship*);
     bool registerAttackOnBoardAtGivenCoordinate(int coordinate);
 private:
     Tile grid[10][10];

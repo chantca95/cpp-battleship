@@ -13,7 +13,7 @@
 class Tile {
 public:
     Tile();
-    void markTileWithShip(Ship ship);
+    void markTileWithShip(Ship* ship);
     void markTileAsRevealed();
     void printTileForPublic();
     void printTileTransparently();
