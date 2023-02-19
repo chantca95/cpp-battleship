@@ -103,7 +103,7 @@ void GameUtil::printIntro() {
 
 void GameUtil::printOutro() {
     // For debugging purposes only, remove when done
-    cout << "----- GAME OVER ----- \n\n\n";
+    cout << "----- GAME OVER ----- \n\n";
     current->printEndingBoard();
     next->printEndingBoard();
 }
