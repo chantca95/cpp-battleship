@@ -11,8 +11,8 @@
 
 Tile::Tile() {}
 
-void Tile::markTileWithShip() {
-    this -> status = 'X';
+void Tile::markTileWithShip(Ship ship) {
+    this -> shipPtr = &ship;
 }
 
 void Tile::markTileAsRevealed() {
@@ -20,10 +20,10 @@ void Tile::markTileAsRevealed() {
 }
 
 void Tile::printTileForPublic() {
-    char output = this -> revealed ? this -> status : '?';
+    char output = this -> revealed ? (this -> shipPtr == nullptr ? '-' : 'X') : '?';
     cout << output << ' ';
 }
 
 void Tile::printTileTransparently() {
-    cout << this -> status << ' ';
+    cout << (this -> shipPtr == nullptr ? '-' : 'X') << ' ';
 }

@@ -38,14 +38,13 @@ void Board::printBoardTransparently() {
     cout << '\n';
 }
 
-void Board::placeShipOnBoardAt(int coordinate) {
-    grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].markTileWithShip();
+void Board::placeShipOnBoardAt(int coordinate, Ship ship) {
+    grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].markTileWithShip(ship);
 }
 
-char Board::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
+bool Board::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
     int row = GameUtil::getRowFromCoordinate(coordinate);
     int col = GameUtil::getColFromCoordinate(coordinate);
     grid[row][col].markTileAsRevealed();
-    
-    return grid[row][col].status;
+    return grid[row][col].shipPtr != nullptr;
 }

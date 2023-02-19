@@ -9,14 +9,15 @@
 #define Tile_hpp
 
 #include <stdio.h>
+#include "Ship.hpp"
 class Tile {
 public:
     Tile();
-    void markTileWithShip();
+    void markTileWithShip(Ship ship);
     void markTileAsRevealed();
     void printTileForPublic();
     void printTileTransparently();
-    char status = '-';
     bool revealed = false;
+    Ship* shipPtr = nullptr;
 };
 #endif /* Tile_hpp */

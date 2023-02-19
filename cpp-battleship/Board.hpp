@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <string>
 #include "Tile.hpp"
+#include "Ship.hpp"
 using namespace std;
 
 class Board {
@@ -18,8 +19,8 @@ public:
     Board();
     void printBoardForPublic();
     void printBoardTransparently();
-    void placeShipOnBoardAt(int);
-    char registerAttackOnBoardAtGivenCoordinate(int coordinate);
+    void placeShipOnBoardAt(int, Ship);
+    bool registerAttackOnBoardAtGivenCoordinate(int coordinate);
 private:
     Tile grid[10][10];
 };

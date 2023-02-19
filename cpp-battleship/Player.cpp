@@ -9,6 +9,7 @@
 #include "GameUtil.hpp"
 #include <iostream>
 #include <cstdlib>
+#include "Horizontal3Ship.hpp"
 
 using namespace std;
 
@@ -17,26 +18,35 @@ Player::Player(string name) {
     this -> board = Board();
     // Just randomly populate boards, we will replace this later on by asking for user input
     srand((unsigned) time(NULL));
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
-    board.placeShipOnBoardAt(rand() % 100 + 1);
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
+    board.placeShipOnBoardAt(rand() % 100 + 1, Horizontal3Ship());
 }
 
 void Player::printVisibleBoard() {
@@ -49,6 +59,6 @@ void Player::printHiddenBoard() {
     board.printBoardTransparently();
 }
 
-char Player::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
+bool Player::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
     return board.registerAttackOnBoardAtGivenCoordinate(coordinate);
 }
