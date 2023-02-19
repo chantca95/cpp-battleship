@@ -13,6 +13,14 @@
 #include "Player.hpp"
 using namespace std;
 
+// Signal Constants
+const int SHIP_MISSED = -1;
+const int SHIP_HIT = 0;
+const int SHIP_DESTROYED = 1;
+
+// Game Constants
+const int numShipsToPlace = 5;
+
 class GameUtil {
 public:
     static void swapActivePlayer(Player* p1, Player* p2);

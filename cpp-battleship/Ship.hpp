@@ -15,7 +15,7 @@ using namespace std;
 class Ship {
 public:
     Ship();
-    void damageSegment();
+    int damageSegment();
     bool isDestroyed;
     int segmentsRemaining;
 };

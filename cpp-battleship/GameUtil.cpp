@@ -12,7 +12,6 @@
 #include <iostream>
 #include <cstdlib>
 
-const int numShipsToPlace = 5;
 
 void GameUtil::swapActivePlayer(Player *current, Player *next) {
     Player temp = *current;
@@ -62,12 +61,18 @@ void GameUtil::commencePlayerTurn(Player* current, Player* next) {
         int coordinate = stoi(userInput);
         if (1 <= coordinate && coordinate <= 100) {
             cout << "Attacking square " << coordinate << "!\n";
-            bool successfulAttack = next->registerAttackOnBoardAtGivenCoordinate(coordinate);
-            if (successfulAttack) {
-                cout << "Successful attack! You get to go again! ";
-            } else {
+            int attackResult = next->registerAttackOnBoardAtGivenCoordinate(coordinate);
+            if (attackResult == SHIP_MISSED) {
                 cout << "You missed! Turn over!\n\n";
                 break;
+            } else {
+                if (next->hasNoShipsRemaining()) {
+                    cout << "Player " << next->name << " has no ships remaining and has been defeated!\n\n";
+                    cout << "PLAYER " << current->name << " WINS!!!\n\n";
+                    break;
+                } else {
+                    cout << "Successful attack! You get to go again! ";
+                }
             }
         }
     }

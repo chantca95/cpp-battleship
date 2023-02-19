@@ -7,15 +7,19 @@
 
 #include "Ship.hpp"
 #include <iostream>
+#include "GameUtil.hpp"
 
 Ship::Ship() {
     isDestroyed = false;
 }
 
-void Ship::damageSegment() {
+int Ship::damageSegment() {
     segmentsRemaining -= 1;
     if (segmentsRemaining == 0) {
         isDestroyed = true;
         cout << "*** SHIP DESTROYED!!! ***\n\n";
+        return SHIP_DESTROYED;
+    } else {
+        return SHIP_HIT;
     }
 }

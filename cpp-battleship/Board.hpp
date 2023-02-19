@@ -20,7 +20,8 @@ public:
     void printBoardForPublic();
     void printBoardTransparently();
     void placeShipOnBoardAt(int, Ship*);
-    bool registerAttackOnBoardAtGivenCoordinate(int coordinate);
+    int registerAttackOnBoardAtGivenCoordinate(int coordinate);
+    int numShipsRemaining;
 private:
     Tile grid[10][10];
 };

@@ -8,7 +8,6 @@
 #include "Player.hpp"
 #include "GameUtil.hpp"
 #include <iostream>
-#include <cstdlib>
 #include "Horizontal3Ship.hpp"
 
 using namespace std;
@@ -16,8 +15,6 @@ using namespace std;
 Player::Player(string name) {
     this->name = name;
     board = Board();
-    // Just randomly populate boards, we will replace this later on by asking for user input
-    srand((unsigned) time(NULL));
 }
 
 void Player::printVisibleBoard() {
@@ -30,10 +27,14 @@ void Player::printHiddenBoard() {
     board.printBoardTransparently();
 }
 
-bool Player::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
+int Player::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
     return board.registerAttackOnBoardAtGivenCoordinate(coordinate);
 }
 
 void Player::placeShipOnBoardAtCoordinate(Ship* ship, int coordinate) {
     board.placeShipOnBoardAt(coordinate, ship);
+}
+
+bool Player::hasNoShipsRemaining() {
+    return board.numShipsRemaining == 0;
 }

@@ -16,6 +16,7 @@ Board::Board() {
             grid[i][j] = Tile();
         }
     };
+    numShipsRemaining = numShipsToPlace;
 }
 
 void Board::printBoardForPublic() {
@@ -42,14 +43,18 @@ void Board::placeShipOnBoardAt(int coordinate, Ship* ship) {
     grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].markTileWithShip(ship);
 }
 
-bool Board::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
+int Board::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
     int row = GameUtil::getRowFromCoordinate(coordinate);
     int col = GameUtil::getColFromCoordinate(coordinate);
     grid[row][col].markTileAsRevealed();
     if (grid[row][col].shipPtr != nullptr) {
-        grid[row][col].shipPtr->damageSegment();
-        return true;
+        int status = grid[row][col].shipPtr->damageSegment();
+        if (status == SHIP_DESTROYED) {
+            numShipsRemaining -= 1;
+            cout << "asdf numShipsRemaining is " << numShipsRemaining << "\n\n";
+        }
+        return status;
     } else {
-        return false;
+        return SHIP_MISSED;
     }
 }
