@@ -20,17 +20,21 @@ const int SHIP_DESTROYED = 1;
 
 // Game Constants
 const int numShipsToPlace = 5;
+const int numPlayers = 2;
 
 class GameUtil {
 public:
-    inline static Player* currentqwer = nullptr;
-    inline static Player* nextasdf = nullptr;
+    inline static Player* current = nullptr;
+    inline static Player* next = nullptr;
     static void swapActivePlayer();
-    static void initializePlayerShips();
+    static void initializeShips();
     static int getRowFromCoordinate(int coordinate);
     static int getColFromCoordinate(int coordinate);
     static Player createPlayer(int playerNumber);
-    static void commencePlayerTurn();
+    static void playGame();
     static void printIntro();
+    static void printOutro();
+private:
+    static void commencePlayerTurn();
 };
 #endif /* GameUtil_hpp */
