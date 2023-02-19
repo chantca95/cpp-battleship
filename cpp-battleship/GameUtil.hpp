@@ -17,6 +17,8 @@ using namespace std;
 const int SHIP_MISSED = -1;
 const int SHIP_HIT = 0;
 const int SHIP_DESTROYED = 1;
+const int GAME_CONTINUE = 2;
+const int GAME_END = 3;
 
 // Game Constants
 const int numShipsToPlace = 5;
@@ -35,6 +37,6 @@ public:
     static void printIntro();
     static void printOutro();
 private:
-    static void commencePlayerTurn();
+    static int commencePlayerTurn();
 };
 #endif /* GameUtil_hpp */

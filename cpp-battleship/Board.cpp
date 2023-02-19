@@ -51,7 +51,7 @@ int Board::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
         int status = grid[row][col].shipPtr->damageSegment();
         if (status == SHIP_DESTROYED) {
             numShipsRemaining -= 1;
-            cout << "asdf numShipsRemaining is " << numShipsRemaining << "\n\n";
+            cout << "Player " << GameUtil::next->name << " has " << numShipsRemaining << " ships remaining\n\n";
         }
         return status;
     } else {

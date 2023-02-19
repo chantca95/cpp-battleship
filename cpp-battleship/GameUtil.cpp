@@ -52,13 +52,15 @@ Player GameUtil::createPlayer(int playerNumber) {
 }
 
 void GameUtil::playGame() {
-    for (int i = 0; i < 10; i++) {
-        commencePlayerTurn();
+    while (true) {
+        if (commencePlayerTurn() == GAME_END) {
+            break;
+        }
         swapActivePlayer();
     }
 }
 
-void GameUtil::commencePlayerTurn() {
+int GameUtil::commencePlayerTurn() {
     cout << "----- NEXT TURN -----\n\n";
     cout << "It is now " << current->name << "'s turn. ";
     while (true) {
@@ -77,6 +79,7 @@ void GameUtil::commencePlayerTurn() {
                 if (next->hasNoShipsRemaining()) {
                     cout << "Player " << next->name << " has no ships remaining and has been defeated!\n\n";
                     cout << "PLAYER " << current->name << " WINS!!!\n\n";
+                    return GAME_END;
                     break;
                 } else {
                     cout << "Successful attack! You get to go again! ";
@@ -84,6 +87,7 @@ void GameUtil::commencePlayerTurn() {
             }
         }
     }
+    return GAME_CONTINUE;
 }
 
 void GameUtil::printIntro() {
