@@ -15,12 +15,20 @@ bool isCoordinateOutOfBounds(int coordinate) {
     return coordinate > 100 || coordinate < 1;
 }
 
-bool isValidShipPlacement(int coordinate, Board board) {
-    if (isCoordinateOutOfBounds(coordinate)) {
-        return false;
-    } else if (board.grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].shipPtr != nullptr) {
+bool isValidShipPlacement(int coordinate, Board board, Ship* s) {
+    if (isCoordinateOutOfBounds(coordinate) || s->willShipBeOutOfBoundsWhenCenteredAtCoordinate(coordinate)) {
         return false;
     }
+    int coordinatesAffected[s->segmentsRemaining];
+    s->fillCoordinatesCoveredByShipAtCenterCoordinate(coordinate, coordinatesAffected);
+    
+    for (int i = 0; i < s->segmentsRemaining; i++) {
+        int partCoordinate = coordinatesAffected[i];
+        if (board.grid[GameUtil::getRowFromCoordinate(partCoordinate)][GameUtil::getColFromCoordinate(partCoordinate)].shipPtr != nullptr) {
+            return false;
+        }
+    }
+    
     return true;
 }
 
@@ -49,7 +57,8 @@ void initializePlayerShips() {
         cout << "Please select a tile from 1-100 to place a ship at: ";
         cin >> input;
         int coordinate = stoi(input);
-        if (isValidShipPlacement(coordinate, GameUtil::current->board)) {
+        
+        if (isValidShipPlacement(coordinate, GameUtil::current->board, s)) {
             GameUtil::current->placeShipOnBoardAtCoordinate(s, coordinate);
         } else {
             // Repeat this loop

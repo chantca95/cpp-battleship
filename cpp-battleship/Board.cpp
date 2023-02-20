@@ -54,8 +54,13 @@ void Board::printEndingBoard() {
 }
 
 
-void Board::placeShipOnBoardAt(int coordinate, Ship* ship) {
-    grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].markTileWithShip(ship);
+void Board::placeShipOnBoardAt(int coordinate, Ship* s) {
+    int coordinatesAffected[s->segmentsRemaining];
+    s->fillCoordinatesCoveredByShipAtCenterCoordinate(coordinate, coordinatesAffected);
+    for (int i = 0; i < s->segmentsRemaining; i++) {
+        int partCoordinate = coordinatesAffected[i];
+        grid[GameUtil::getRowFromCoordinate(partCoordinate)][GameUtil::getColFromCoordinate(partCoordinate)].markTileWithShip(s);
+    }
 }
 
 int Board::registerAttackOnBoardAtGivenCoordinate(int coordinate) {
