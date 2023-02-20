@@ -51,9 +51,11 @@ void initializePlayerShips() {
         new Horizontal3Ship(),
         new Horizontal3Ship(),
     };
-    cout << "It is Player " << GameUtil::current->name << "'s turn to place ships.\n\n";
+    cout << "\n\nIt is Player " << GameUtil::current->name << "'s turn to place ships.\n\n";
     for (int j = 0; j < numShipsToPlace; j++) {
         Ship* s = shipsToBePlaced[j];
+        s->printShipPlacementInstructions();
+        GameUtil::current->printHiddenBoard();
         cout << "Please select a tile from 1-100 to place a ship at: ";
         cin >> input;
         int coordinate = stoi(input);
@@ -63,7 +65,7 @@ void initializePlayerShips() {
         } else {
             // Repeat this loop
             j--;
-            cout << "\nThat tile is out of bounds, or there is already a ship at that tile. ";
+            cout << "\nThat tile is out of bounds, or there is already a ship at that tile.\n";
         }
         cout << endl;
     }

@@ -21,5 +21,6 @@ public:
     int segmentsRemaining;
     void fillCoordinatesCoveredByShipAtCenterCoordinate(int coordinate, int array[]);
     bool willShipBeOutOfBoundsWhenCenteredAtCoordinate(int coordinate);
+    void printShipPlacementInstructions();
 };
 #endif /* Ship_hpp */
