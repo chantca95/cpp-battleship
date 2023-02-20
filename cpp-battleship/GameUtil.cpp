@@ -9,6 +9,7 @@
 #include "Player.hpp"
 #include "Ship.hpp"
 #include "Horizontal3Ship.hpp"
+#include "Vertical3Ship.hpp"
 #include <iostream>
 
 bool isCoordinateOutOfBounds(int coordinate) {
@@ -46,9 +47,9 @@ void initializePlayerShips() {
     string input;
     Ship* shipsToBePlaced[numShipsToPlace] = {
         new Horizontal3Ship(),
+        new Vertical3Ship(),
         new Horizontal3Ship(),
-        new Horizontal3Ship(),
-        new Horizontal3Ship(),
+        new Vertical3Ship(),
         new Horizontal3Ship(),
     };
     cout << "\n\nIt is Player " << GameUtil::current->name << "'s turn to place ships.\n\n";
