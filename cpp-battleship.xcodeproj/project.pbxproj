@@ -15,6 +15,7 @@
 		BB981E6129A14F4400B1A6BF /* Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB981E5F29A14F4400B1A6BF /* Ship.cpp */; };
 		BB981E6429A1527F00B1A6BF /* Horizontal3Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB981E6229A1527F00B1A6BF /* Horizontal3Ship.cpp */; };
 		BBED836F29A33F8200E23F75 /* Vertical3Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBED836D29A33F8200E23F75 /* Vertical3Ship.cpp */; };
+		BBED837229A340D000E23F75 /* CrossShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BBED837029A340D000E23F75 /* CrossShip.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,8 @@
 		BB981E6329A1527F00B1A6BF /* Horizontal3Ship.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Horizontal3Ship.hpp; sourceTree = "<group>"; };
 		BBED836D29A33F8200E23F75 /* Vertical3Ship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vertical3Ship.cpp; sourceTree = "<group>"; };
 		BBED836E29A33F8200E23F75 /* Vertical3Ship.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vertical3Ship.hpp; sourceTree = "<group>"; };
+		BBED837029A340D000E23F75 /* CrossShip.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CrossShip.cpp; sourceTree = "<group>"; };
+		BBED837129A340D000E23F75 /* CrossShip.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CrossShip.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				BB981E6329A1527F00B1A6BF /* Horizontal3Ship.hpp */,
 				BBED836D29A33F8200E23F75 /* Vertical3Ship.cpp */,
 				BBED836E29A33F8200E23F75 /* Vertical3Ship.hpp */,
+				BBED837029A340D000E23F75 /* CrossShip.cpp */,
+				BBED837129A340D000E23F75 /* CrossShip.hpp */,
 			);
 			path = "cpp-battleship";
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				BB7E362F299E12E500DD00E3 /* GameUtil.cpp in Sources */,
 				BBED836F29A33F8200E23F75 /* Vertical3Ship.cpp in Sources */,
 				BB84DADA299CC5920076D269 /* main.cpp in Sources */,
+				BBED837229A340D000E23F75 /* CrossShip.cpp in Sources */,
 				BB981E6129A14F4400B1A6BF /* Ship.cpp in Sources */,
 				BB7E362C299E052B00DD00E3 /* Player.cpp in Sources */,
 				BB7E363E29A0BDC500DD00E3 /* Tile.cpp in Sources */,
