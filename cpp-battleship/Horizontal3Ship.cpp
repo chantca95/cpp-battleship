@@ -8,7 +8,7 @@
 #include "Horizontal3Ship.hpp"
 
 Horizontal3Ship::Horizontal3Ship() {
-    segmentsRemaining = 3;
+    segmentsRemaining = 1;
 }
 
 void Ship::fillCoordinatesCoveredByShipAtCenterCoordinate(int coordinate, int array[]) {

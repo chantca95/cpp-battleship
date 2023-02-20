@@ -11,8 +11,12 @@
 #include "Horizontal3Ship.hpp"
 #include <iostream>
 
+bool isCoordinateOutOfBounds(int coordinate) {
+    return coordinate > 100 || coordinate < 1;
+}
+
 bool isValidShipPlacement(int coordinate, Board board) {
-    if (coordinate > 100 || coordinate < 1) {
+    if (isCoordinateOutOfBounds(coordinate)) {
         return false;
     } else if (board.grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].shipPtr != nullptr) {
         return false;
@@ -21,7 +25,7 @@ bool isValidShipPlacement(int coordinate, Board board) {
 }
 
 bool isValidAttackCoordinate(int coordinate, Board board) {
-    if (coordinate > 100 || coordinate < 1) {
+    if (isCoordinateOutOfBounds(coordinate)) {
         return false;
     } else if (board.grid[GameUtil::getRowFromCoordinate(coordinate)][GameUtil::getColFromCoordinate(coordinate)].isRevealed) {
         return false;
@@ -32,13 +36,20 @@ bool isValidAttackCoordinate(int coordinate, Board board) {
 
 void initializePlayerShips() {
     string input;
+    Ship* shipsToBePlaced[numShipsToPlace] = {
+        new Horizontal3Ship(),
+        new Horizontal3Ship(),
+        new Horizontal3Ship(),
+        new Horizontal3Ship(),
+        new Horizontal3Ship(),
+    };
     cout << "It is Player " << GameUtil::current->name << "'s turn to place ships.\n\n";
     for (int j = 0; j < numShipsToPlace; j++) {
+        Ship* s = shipsToBePlaced[j];
         cout << "Please select a tile from 1-100 to place a ship at: ";
         cin >> input;
         int coordinate = stoi(input);
         if (isValidShipPlacement(coordinate, GameUtil::current->board)) {
-            Ship* s = new Horizontal3Ship();
             GameUtil::current->placeShipOnBoardAtCoordinate(s, coordinate);
         } else {
             // Repeat this loop
