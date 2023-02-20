@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include "Ship.hpp"
+#include "GameUtil.hpp"
 
 class Horizontal3Ship : public Ship {
 public:
