@@ -19,8 +19,8 @@ public:
     int damageSegment();
     bool isDestroyed;
     int segmentsRemaining;
-    void fillCoordinatesCoveredByShipAtCenterCoordinate(int coordinate, int array[]);
-    bool willShipBeOutOfBoundsWhenCenteredAtCoordinate(int coordinate);
-    void printShipPlacementInstructions();
+    virtual void fillCoordinatesCoveredByShipAtCenterCoordinate(int coordinate, int array[]);
+    virtual bool willShipBeOutOfBoundsWhenCenteredAtCoordinate(int coordinate);
+    virtual void printShipPlacementInstructions();
 };
 #endif /* Ship_hpp */

@@ -12,18 +12,18 @@ Horizontal3Ship::Horizontal3Ship() {
     segmentsRemaining = 3;
 }
 
-void Ship::fillCoordinatesCoveredByShipAtCenterCoordinate(int coordinate, int array[]) {
+void Horizontal3Ship::fillCoordinatesCoveredByShipAtCenterCoordinate(int coordinate, int array[]) {
     array[0] = coordinate - 1;
     array[1] = coordinate;
     array[2] = coordinate + 1;
 }
 
-bool Ship::willShipBeOutOfBoundsWhenCenteredAtCoordinate(int coordinate) {
+bool Horizontal3Ship::willShipBeOutOfBoundsWhenCenteredAtCoordinate(int coordinate) {
     int col = GameUtil::getColFromCoordinate(coordinate);
     return col < 1 || col > 8;
 }
 
-void Ship::printShipPlacementInstructions() {
+void Horizontal3Ship::printShipPlacementInstructions() {
     cout << "You are now placing a horizontal ship of width 3.\n";
     cout << "Choose a tile to place the ship, occupying the tile behind it to the tile ahead of it.\n";
     cout << "Ie. if you chose tile O, your ship would be placed on the X's and O.\n\n";

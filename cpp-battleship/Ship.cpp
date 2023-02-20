@@ -23,3 +23,9 @@ int Ship::damageSegment() {
         return SHIP_HIT;
     }
 }
+
+void Ship::fillCoordinatesCoveredByShipAtCenterCoordinate(int coordinate, int array[]) {}
+bool Ship::willShipBeOutOfBoundsWhenCenteredAtCoordinate(int coordinate) {
+    return false;
+}
+void Ship::printShipPlacementInstructions() {}
